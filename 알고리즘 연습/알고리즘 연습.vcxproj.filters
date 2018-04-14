@@ -22,6 +22,9 @@
     <Filter Include="소스 파일\덱">
       <UniqueIdentifier>{811bbaf7-731b-4821-b591-033209dd9db3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\STL 과제1">
+      <UniqueIdentifier>{4df209d0-988b-4221-b0c5-213c80c5ca56}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -29,6 +32,9 @@
     </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="헤더.h">
+      <Filter>소스 파일\STL 과제1</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +64,9 @@
     </ClCompile>
     <ClCompile Include="AC.cpp">
       <Filter>소스 파일\덱</Filter>
+    </ClCompile>
+    <ClCompile Include="RankingSystem.cpp">
+      <Filter>소스 파일\STL 과제1</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
