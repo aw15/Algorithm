@@ -1,12 +1,13 @@
-#include"stdafx.h"
+Ôªø#include"stdafx.h"
 #include<iostream>
 #include<fstream>
 #include<random>
 #include<chrono>
 #include<vector>
 #include<string>
-#include <iomanip>
+#include<iomanip>
 #include<algorithm>
+
 using std::cout;
 using std::cin;
 using std::endl;
@@ -21,42 +22,20 @@ const unsigned int maxPrisonScore = 410000000;
 class RankingData
 {
 public:
-	RankingData(string idData, int trainingScore, int prisonScore) :id(idData),trainingGroundScore(trainingScore),prisonBreakScore(prisonScore) {};
-	RankingData(RankingData& copy)
+	RankingData(string idData, int trainingScore, int prisonScore) :trainingGroundScore(trainingScore),prisonBreakScore(prisonScore) 
 	{
-		id = copy.id;
-		trainingGroundScore = copy.trainingGroundScore;
-		prisonBreakScore = copy.prisonBreakScore;
-	}
-	RankingData(RankingData&& copy) noexcept
-	{
-		id = copy.id;
-		trainingGroundScore = copy.trainingGroundScore;
-		prisonBreakScore = copy.prisonBreakScore;
+		strcpy(id, idData.c_str());
+	};
 
-	}
-	RankingData operator=(const RankingData& copy)
-	{
-		id = copy.id;
-		trainingGroundScore = copy.trainingGroundScore;
-		prisonBreakScore = copy.prisonBreakScore;
-
-		return *this;
-	}
-	RankingData operator=(const RankingData&& copy)
-	{
-		id = copy.id;
-		trainingGroundScore = copy.trainingGroundScore;
-		prisonBreakScore = copy.prisonBreakScore;
-
-		return *this;
-	}
 	void Print()
 	{
-		cout <<setw(30) << id << "  ƒÌ≈∞»∆∑√º“ ¡°ºˆ: "<<setw(15) << trainingGroundScore << " ∂º≈ª√‚º“ ¡°ºˆ: "<<setw(15) << prisonBreakScore << endl;
+		cout.precision(3);
+		cout <<setw(30) << id <<setw(7)<<rank<<"Îì± "<<setw(4)<< ratio<<"%" <<"  Ïø†ÌÇ§ÌõàÎ†®ÏÜå Ï†êÏàò: "<<setw(15) << trainingGroundScore << " ÎñºÌÉàÏ∂úÏÜå Ï†êÏàò: "<<setw(15) << prisonBreakScore << endl;
 	}
 public:
-	string id;
+	char id[30];
+	unsigned int rank = 0;
+	float ratio = 0;
 	unsigned int trainingGroundScore;
 	unsigned int prisonBreakScore;
 
@@ -65,38 +44,107 @@ public:
 
 int main()
 {
+	
+
+	std::random_device rd;
+	std::default_random_engine dre(rd());
+	std::normal_distribution<double> distribution(0.0, 0.5);
+
+	std::vector<RankingData> rankingSystem;
+	rankingSystem.reserve(MAX_PLAYER);
+
+	//ofstream out("rank.txt",ios::binary);
+	//out.write((char*)v.data(), sizeof(Player) * 1000);
+	ifstream in("ÏÑ†ÏàòÎç∞Ïù¥ÌÑ∞", ios::binary);
+	if (in)
+	{
+		in.read((char*)rankingSystem.data(), sizeof(RankingData) * MAX_PLAYER);
+		for (auto& data : rankingSystem)
+		{
+			data.Print();
+		}
+	}
+	else
+	{
+		for (int i = 0; i < MAX_PLAYER;)
+		{
+			double trainingScore = distribution(dre);
+			double prisonScore = distribution(dre);
+
+			if (-1.0 <= trainingScore && trainingScore <= 1.0 &&-1.0 <= prisonScore && prisonScore <= 1.0)
+			{
+				trainingScore += 1;
+				prisonScore += 1;
+				trainingScore *= 18500000;
+				prisonScore *= 205000000;
+				if (i == 0)
+				{
+					rankingSystem.emplace_back("ÎÇò", int(trainingScore), int(prisonScore));
+				}
+				else
+				{
+					rankingSystem.emplace_back(to_string(i) + "Î≤à ÌîåÎ†àÏù¥Ïñ¥", int(trainingScore), int(prisonScore));
+				}
+				i++;
+			}
+		}
+	}
+
+
 
 
 	auto start = std::chrono::high_resolution_clock::now();
-	std::vector<RankingData> rankingSystem;
 	
-	std::random_device rd;
-	std::default_random_engine dre(rd());
-	std::normal_distribution<double> distribution(5.0,2.0);
 
 
-	rankingSystem.reserve(MAX_PLAYER);
-	rankingSystem.push_back(RankingData("≥™", int(distribution(dre))*maxTrainingScore / MAX_PLAYER, int(distribution(dre))*maxPrisonScore / MAX_PLAYER));
 
-	for (int i = 1; i <= MAX_PLAYER; ++i)
-	{
-		double trainingScore = distribution(dre);
-		double prisonScore = distribution(dre);
-		if ((trainingScore >= 0.0) && (trainingScore < 10.0)&& (prisonScore >= 0.0) && (prisonScore < 10.0))
-		{
-			rankingSystem.emplace_back(to_string(i) + "π¯ «√∑π¿ÃæÓ", int(trainingScore)*maxTrainingScore / MAX_PLAYER, int(prisonScore)*maxPrisonScore / MAX_PLAYER);
-		}
-	}
+
+	
 	sort(rankingSystem.begin(), rankingSystem.end(), [](const RankingData& a, const RankingData& b) {
-		return a.trainingGroundScore + a.prisonBreakScore < b.trainingGroundScore + b.prisonBreakScore;
+		return a.trainingGroundScore + a.prisonBreakScore > b.trainingGroundScore + b.prisonBreakScore;
 	});
+
+
+	//qsort(rankingSystem.data(), rankingSystem.size(), sizeof(RankingData), [](const void* a, const void* b)
+	//{
+	//	return static_cast<const int>(((RankingData*)a)->prisonBreakScore+((RankingData*)a)->trainingGroundScore) - static_cast<const int>(((RankingData*)b)->prisonBreakScore + ((RankingData*)b)->trainingGroundScore);
+	//});
 
 	std::chrono::duration<double> elapsedTime = std::chrono::high_resolution_clock::now() - start;
 
-	for (auto& data : rankingSystem)
+	int rank = 1;
+	int totalrank = 1;
+
+	int size = rankingSystem.size();
+	for (int i = 0; i <size ; i++)
 	{
-		data.Print();
+		if (i != 0)
+		{
+			if (rankingSystem[i - 1].prisonBreakScore + rankingSystem[i - 1].trainingGroundScore == rankingSystem[i].prisonBreakScore + rankingSystem[i].trainingGroundScore)
+			{
+				rankingSystem[i].rank = rank;
+				rankingSystem[i].ratio = (rank / (float)MAX_PLAYER) * 100;
+			}
+			else
+			{
+				rankingSystem[i].rank = totalrank;
+				rank = totalrank;
+				rankingSystem[i].ratio = (rank / (float)MAX_PLAYER) * 100;
+			}
+		}
+		else
+		{
+			rankingSystem[i].rank = rank;
+			rankingSystem[i].ratio = (rank / (float)MAX_PLAYER) * 100;
+		}
+		rankingSystem[i].Print();
+		totalrank++;
 	}
 
 	cout << elapsedTime.count();
-}
+
+	ofstream out("ÏÑ†ÏàòÎç∞Ïù¥ÌÑ∞", ios::binary);
+	out.write((char*)rankingSystem.data(), sizeof(RankingData) * MAX_PLAYER);
+
+	return 0;
+}Ôªø
