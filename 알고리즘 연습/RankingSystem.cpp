@@ -1,4 +1,5 @@
 ﻿#include"stdafx.h"
+
 #include<iostream>
 #include<fstream>
 #include<random>
@@ -7,7 +8,7 @@
 #include<string>
 #include<iomanip>
 #include<algorithm>
-
+#include<memory>
 using std::cout;
 using std::cin;
 using std::endl;
@@ -22,7 +23,15 @@ const unsigned int maxPrisonScore = 410000000;
 class RankingData
 {
 public:
-	RankingData(string idData, int trainingScore, int prisonScore) :trainingGroundScore(trainingScore),prisonBreakScore(prisonScore) 
+	RankingData()
+	{
+		strcpy(id , "NULL");
+		rank = 0;
+		//ratio = 0;
+		trainingGroundScore=0;
+		prisonBreakScore=0;
+	}
+	RankingData(string idData, int trainingScore, int prisonScore) :trainingGroundScore(trainingScore), prisonBreakScore(prisonScore)
 	{
 		strcpy(id, idData.c_str());
 	};
@@ -30,7 +39,7 @@ public:
 	void Print()
 	{
 		cout.precision(3);
-		cout <<setw(30) << id <<setw(7)<<rank<<"등 "<<setw(4)<< ratio<<"%" <<"  쿠키훈련소 점수: "<<setw(15) << trainingGroundScore << " 떼탈출소 점수: "<<setw(15) << prisonBreakScore << endl;
+		cout << setw(30) << id << setw(7) << rank << "등 " <<setw(4) << ratio << "%" << "  쿠키훈련소 점수: " << setw(15) << trainingGroundScore << " 떼탈출소 점수: " << setw(15) << prisonBreakScore << endl;
 	}
 public:
 	char id[30];
@@ -42,22 +51,22 @@ public:
 };
 
 
+
 int main()
 {
-	
-
 	std::random_device rd;
 	std::default_random_engine dre(rd());
 	std::normal_distribution<double> distribution(0.0, 0.5);
 
 	std::vector<RankingData> rankingSystem;
-	rankingSystem.reserve(MAX_PLAYER);
 
-	//ofstream out("rank.txt",ios::binary);
-	//out.write((char*)v.data(), sizeof(Player) * 1000);
-	ifstream in("선수데이터", ios::binary);
+
+
+	ifstream in("output.txt", ios::binary);
+
 	if (in)
 	{
+		rankingSystem.resize(MAX_PLAYER);
 		in.read((char*)rankingSystem.data(), sizeof(RankingData) * MAX_PLAYER);
 		for (auto& data : rankingSystem)
 		{
@@ -66,6 +75,7 @@ int main()
 	}
 	else
 	{
+		rankingSystem.reserve(MAX_PLAYER);
 		for (int i = 0; i < MAX_PLAYER;)
 		{
 			double trainingScore = distribution(dre);
@@ -94,12 +104,12 @@ int main()
 
 
 	auto start = std::chrono::high_resolution_clock::now();
-	
 
 
 
 
-	
+	cout << "==================================================================================================================" << endl;
+
 	sort(rankingSystem.begin(), rankingSystem.end(), [](const RankingData& a, const RankingData& b) {
 		return a.trainingGroundScore + a.prisonBreakScore > b.trainingGroundScore + b.prisonBreakScore;
 	});
@@ -116,7 +126,7 @@ int main()
 	int totalrank = 1;
 
 	int size = rankingSystem.size();
-	for (int i = 0; i <size ; i++)
+	for (int i = 0; i < size; i++)
 	{
 		if (i != 0)
 		{
@@ -141,10 +151,13 @@ int main()
 		totalrank++;
 	}
 
-	cout << elapsedTime.count();
+	cout << elapsedTime.count()<<endl;
 
-	ofstream out("선수데이터", ios::binary);
-	out.write((char*)rankingSystem.data(), sizeof(RankingData) * MAX_PLAYER);
 
-	return 0;
-}﻿
+	cout << "==================================================================================" << endl;
+
+	ofstream out("output.txt", ios::binary);
+
+	out.write((char*)rankingSystem.data(), rankingSystem.size() * sizeof(RankingData));
+
+}
