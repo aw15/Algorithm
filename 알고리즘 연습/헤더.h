@@ -89,4 +89,13 @@ RankingData operator=(const RankingData&& copy)
 }
 연산자 만들면 오히려 최적화의 손해가 많이 생겼다.
 아무래도 컴파일러가 만드는 코드가 더 효율적인거 같다.
+
+
+sort후에 메모리 위치가 바뀌다보니 처음 find if로 찾았던 player iterator가 더 이상 player가 아니었다.
+
+
+auto temp = player++;
+이런식으로 하면 대입연산자가 먼저이기 때문에 원본player가 temp에 들어가고 오히려 player가 다음껄 가리키게 된다.
 */
+
+

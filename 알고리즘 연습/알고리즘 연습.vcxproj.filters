@@ -36,6 +36,9 @@
     <ClInclude Include="헤더.h">
       <Filter>소스 파일\STL 과제1</Filter>
     </ClInclude>
+    <ClInclude Include="RankingData.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -67,6 +70,9 @@
     </ClCompile>
     <ClCompile Include="회전하는 큐.cpp">
       <Filter>소스 파일\덱</Filter>
+    </ClCompile>
+    <ClCompile Include="RankingData.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
