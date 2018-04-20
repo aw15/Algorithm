@@ -73,11 +73,11 @@ RankingData(RankingData&& copy) noexcept
 }
 RankingData operator=(const RankingData& copy)
 {
-id = copy.id;
-trainingGroundScore = copy.trainingGroundScore;
-prisonBreakScore = copy.prisonBreakScore;
+	id = copy.id;
+	trainingGroundScore = copy.trainingGroundScore;
+	prisonBreakScore = copy.prisonBreakScore;
 
-return *this;
+	return *this;
 }
 RankingData operator=(const RankingData&& copy)
 {

@@ -3,12 +3,6 @@
 #define MAX_PLAYER 100000
 
 
-void RandomScoreGenerator(RankingData& data)
-{
-
-}
-
-
 int main()
 {
 	std::random_device rd;
@@ -84,18 +78,47 @@ int main()
 			else
 			{
 				rankingSystem[i].setRank(rank);
+				rankingSystem[i].setpreviousRank(rank);
 				rankingSystem[i].setRatio((rank / (float)MAX_PLAYER) * 100);
 			}
 			totalrank++;
 		}
+		auto player = find_if(rankingSystem.begin(), rankingSystem.end(), [](RankingData& data)
+		{
+			return (data.getId() == "나");
+		});
+
+		int myRank = player->getRank();
+		player->setpreviousRank(myRank);
+
+		player->Print();
+		cout << endl << "-----------------------------------------------내 위 등수-----------------------------------------------" << endl;
+		player--;
+		while (myRank <= player->getRank())
+		{
+			player--;
+		}
+		player->Print();
+		cout << endl << "----------------------------------------------내 아래 등수----------------------------------------------" << endl;
+		player++;
+		while (myRank >= player->getRank())
+		{
+			player++;
+		}
+		player->Print();
+
+
+		cout << "==================================================================================================================" << endl;
 	}
 
 
-	auto start = std::chrono::high_resolution_clock::now();
+	
 
 	int selection = -1;
 	while (!(selection == 0))
 	{
+		auto start = std::chrono::high_resolution_clock::now();
+
 		double trainingScore = distribution(dre);
 		double prisonScore = distribution(dre);
 
@@ -221,6 +244,9 @@ int main()
 	
 		
 		cout << "==================================================================================================================" << endl;
+		std::chrono::duration<double> elapsedTime = std::chrono::high_resolution_clock::now() - start;
+
+		cout << "수행시간 : " << elapsedTime.count() << endl;
 
 		cout << "끝내시겠습니까?[ YES: 0 NO : 1 ] : ";
 		cin >> selection;
@@ -239,10 +265,7 @@ int main()
 	//	return static_cast<const int>(((RankingData*)a)->prisonBreakScore+((RankingData*)a)->trainingGroundScore) - static_cast<const int>(((RankingData*)b)->prisonBreakScore + ((RankingData*)b)->trainingGroundScore);
 	//});
 
-	std::chrono::duration<double> elapsedTime = std::chrono::high_resolution_clock::now() - start;
-
-
-	cout <<"수행시간 : "<< elapsedTime.count() << endl;
+	
 	ofstream out("output.txt", ios::binary);
 	out.write((char*)rankingSystem.data(), rankingSystem.size() * sizeof(RankingData));
 	cout << "output.txt로 출력!" << endl;
