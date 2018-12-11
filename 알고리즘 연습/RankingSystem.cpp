@@ -1,4 +1,6 @@
-﻿#include"RankingData.h"
+﻿
+
+#include"RankingData.h"
 
 #define MAX_PLAYER 100000
 

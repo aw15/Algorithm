@@ -5,10 +5,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="리소스 파일">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -25,25 +21,16 @@
     <Filter Include="소스 파일\STL 과제1">
       <UniqueIdentifier>{4df209d0-988b-4221-b0c5-213c80c5ca56}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Level1">
+      <UniqueIdentifier>{11609a16-8cfb-4b66-9f29-13a7ed024642}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="헤더.h">
+    <ClInclude Include="RankingData.h">
       <Filter>소스 파일\STL 과제1</Filter>
     </ClInclude>
-    <ClInclude Include="RankingData.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>헤더 파일</Filter>
-    </ClCompile>
     <ClCompile Include="스택 수열.cpp">
       <Filter>소스 파일\스택</Filter>
     </ClCompile>
@@ -72,7 +59,31 @@
       <Filter>소스 파일\덱</Filter>
     </ClCompile>
     <ClCompile Include="RankingData.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\STL 과제1</Filter>
+    </ClCompile>
+    <ClCompile Include="k번째수.cpp">
+      <Filter>소스 파일\Level1</Filter>
+    </ClCompile>
+    <ClCompile Include="다리위를 지나는 트럭.cpp">
+      <Filter>소스 파일\Level1</Filter>
+    </ClCompile>
+    <ClCompile Include="완주하지 못한 선수.cpp">
+      <Filter>소스 파일\Level1</Filter>
+    </ClCompile>
+    <ClCompile Include="체육복.cpp">
+      <Filter>소스 파일\Level1</Filter>
+    </ClCompile>
+    <ClCompile Include="모의고사.cpp">
+      <Filter>소스 파일\Level1</Filter>
+    </ClCompile>
+    <ClCompile Include="2016년.cpp">
+      <Filter>소스 파일\Level1</Filter>
+    </ClCompile>
+    <ClCompile Include="가운데글자가져오기.cpp">
+      <Filter>소스 파일\Level1</Filter>
+    </ClCompile>
+    <ClCompile Include="김서방 찾기.cpp">
+      <Filter>소스 파일\Level1</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
