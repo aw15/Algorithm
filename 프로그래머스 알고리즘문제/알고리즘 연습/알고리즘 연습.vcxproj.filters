@@ -24,6 +24,9 @@
     <Filter Include="소스 파일\Level1">
       <UniqueIdentifier>{11609a16-8cfb-4b66-9f29-13a7ed024642}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Level2">
+      <UniqueIdentifier>{3bf2524a-6d6e-4bf7-8ded-0eb72517784a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RankingData.h">
@@ -87,6 +90,27 @@
     </ClCompile>
     <ClCompile Include="시저암호.cpp">
       <Filter>소스 파일\Level1</Filter>
+    </ClCompile>
+    <ClCompile Include="이상한문자만들기.cpp">
+      <Filter>소스 파일\Level1</Filter>
+    </ClCompile>
+    <ClCompile Include="소스.cpp">
+      <Filter>소스 파일\Level1</Filter>
+    </ClCompile>
+    <ClCompile Include="스킬트리.cpp">
+      <Filter>소스 파일\Level2</Filter>
+    </ClCompile>
+    <ClCompile Include="주식가격.cpp">
+      <Filter>소스 파일\Level2</Filter>
+    </ClCompile>
+    <ClCompile Include="124나라 숫자.cpp">
+      <Filter>소스 파일\Level2</Filter>
+    </ClCompile>
+    <ClCompile Include="기능개발.cpp">
+      <Filter>소스 파일\Level2</Filter>
+    </ClCompile>
+    <ClCompile Include="더맵게.cpp">
+      <Filter>소스 파일\Level2</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
