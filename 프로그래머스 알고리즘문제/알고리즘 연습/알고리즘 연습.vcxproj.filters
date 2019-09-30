@@ -27,6 +27,9 @@
     <Filter Include="소스 파일\Level2">
       <UniqueIdentifier>{3bf2524a-6d6e-4bf7-8ded-0eb72517784a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Naver2019">
+      <UniqueIdentifier>{d23d2471-f26c-4935-ab85-cdd017bc9c1c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RankingData.h">
@@ -34,9 +37,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="스택 수열.cpp">
-      <Filter>소스 파일\스택</Filter>
-    </ClCompile>
     <ClCompile Include="stack.cpp">
       <Filter>소스 파일\스택</Filter>
     </ClCompile>
@@ -94,9 +94,6 @@
     <ClCompile Include="이상한문자만들기.cpp">
       <Filter>소스 파일\Level1</Filter>
     </ClCompile>
-    <ClCompile Include="소스.cpp">
-      <Filter>소스 파일\Level1</Filter>
-    </ClCompile>
     <ClCompile Include="스킬트리.cpp">
       <Filter>소스 파일\Level2</Filter>
     </ClCompile>
@@ -111,6 +108,30 @@
     </ClCompile>
     <ClCompile Include="더맵게.cpp">
       <Filter>소스 파일\Level2</Filter>
+    </ClCompile>
+    <ClCompile Include="프로그래머스2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="프로그래머스3.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="3번문제.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="죠르디.cpp">
+      <Filter>소스 파일\큐</Filter>
+    </ClCompile>
+    <ClCompile Include="2번문제.cpp">
+      <Filter>소스 파일\Naver2019</Filter>
+    </ClCompile>
+    <ClCompile Include="Tree.cpp">
+      <Filter>소스 파일\Naver2019</Filter>
+    </ClCompile>
+    <ClCompile Include="스택수열.cpp">
+      <Filter>소스 파일\스택</Filter>
+    </ClCompile>
+    <ClCompile Include="에디터.cpp">
+      <Filter>소스 파일\스택</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
