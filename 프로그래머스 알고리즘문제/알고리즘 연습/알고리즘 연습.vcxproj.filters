@@ -30,6 +30,9 @@
     <Filter Include="소스 파일\Naver2019">
       <UniqueIdentifier>{d23d2471-f26c-4935-ab85-cdd017bc9c1c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\그래프">
+      <UniqueIdentifier>{4df65c6a-aab2-40e0-bf71-18aeba5662d2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RankingData.h">
@@ -109,15 +112,6 @@
     <ClCompile Include="더맵게.cpp">
       <Filter>소스 파일\Level2</Filter>
     </ClCompile>
-    <ClCompile Include="프로그래머스2.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="프로그래머스3.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="3번문제.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="죠르디.cpp">
       <Filter>소스 파일\큐</Filter>
     </ClCompile>
@@ -132,6 +126,9 @@
     </ClCompile>
     <ClCompile Include="에디터.cpp">
       <Filter>소스 파일\스택</Filter>
+    </ClCompile>
+    <ClCompile Include="여행경로.cpp">
+      <Filter>소스 파일\그래프</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
