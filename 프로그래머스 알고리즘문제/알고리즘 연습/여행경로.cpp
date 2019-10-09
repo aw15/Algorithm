@@ -2,12 +2,12 @@
 #include <vector>
 #include<string>
 #include<unordered_map>
+#include<algorithm>
 using namespace std;
 
 
 #include<iostream>
 
-vector<string> realAnswer;
 
 struct Node
 {
@@ -19,6 +19,7 @@ class Graph
 {
 public:
 	unordered_map<string,Node> nodes;
+	int ticketCount = 0;
 
 	void AddEdge(string a, string b)
 	{
@@ -38,67 +39,66 @@ public:
 		return true;
 	}
 
-	void DFS(string start, vector<string>& answer)
+	bool DFS(string start, vector<string>& answer, vector<string>& temp)
 	{
-		if (AllPass(start))
-			return;
+		if (temp.size() == ticketCount )
+		{
+			temp.push_back(start);
+			answer = temp;
+			return true;
+		}
+	
 
+		temp.push_back(start);
 
 		auto& adjustments = nodes[start].adjustment;
 		auto& visit = nodes[start].isVisit;
 
 		for (int j = 0; j < adjustments.size(); ++j)
 		{
-			for (int i = 0; i < adjustments.size(); ++i)
+			int index = j;
+			if (!visit[index])
 			{
-				int index = (i + j) % adjustments.size();
-				if (!visit[index])
-				{
-					answer.push_back(adjustments[index]);
-					cout << start << " -> " << adjustments[index] << endl;
-					visit[index] = true;
-					DFS(adjustments[index], answer);
-					break;
-				}
+				//cout << start << " -> " << adjustments[index] << endl;
+				visit[index] = true;
+				bool success = DFS(adjustments[index], answer, temp);
+
+				if (success)
+					return true;
+
+				visit[index] = false;
 			}
-			cout <<"=============================="<< endl;
-
-	/*		if (answer.size() == nodes.size())
-			{
-				for (auto data : answer)
-				{
-					cout << data<<" ";
-				}
-
-			}
-			cout << endl;*/
-
-			
-			/*for (int z=0;z<visit.size();++z)
-			{
-				visit[z] = false;
-			}*/
 		}
+
+		temp.pop_back();
+		return false;
 	}
 
-	void InitDFS(string start)
+	void InitDFS(string start, vector<string>& answer, vector<string>& temp)
 	{
-		vector<string> answer;
-		DFS(start,answer);
+
+		DFS(start,answer,temp);
 	}
 
 };
 
 vector<string> solution(vector<vector<string>> tickets) {
+	
+	
+	
 	vector<string> answer;
+	vector<string> temp;
+
+
+	sort(tickets.begin(), tickets.end());
 
 	Graph graph;
 	for (int i = 0; i < tickets.size(); ++i)
 	{
 		graph.AddEdge(tickets[i][0], tickets[i][1]);
 	}
-	
-	graph.InitDFS("ICN");
+	graph.ticketCount = tickets.size();
+	graph.InitDFS("ICN",answer, temp);
 
 
 
@@ -111,5 +111,11 @@ vector<string> solution(vector<vector<string>> tickets) {
 int main()
 {
 	
-	solution({ {"ICN", "JFK"},{"HND", "IAD"},{"JFK", "HND"},{"HND","ICN"},{"ICN","HND"} });
+	auto temp = solution({ {"ICN", "JFK"},{"HND", "IAD"},{"JFK", "HND"},{"HND","ICN"},{"ICN","HND"} });
+
+
+	for (auto data : temp)
+	{
+		cout << data << " ";
+	}
 }

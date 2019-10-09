@@ -130,5 +130,8 @@
     <ClCompile Include="여행경로.cpp">
       <Filter>소스 파일\그래프</Filter>
     </ClCompile>
+    <ClCompile Include="로또 번호.cpp">
+      <Filter>소스 파일\그래프</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
