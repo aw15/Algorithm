@@ -33,6 +33,9 @@
     <Filter Include="소스 파일\그래프">
       <UniqueIdentifier>{4df65c6a-aab2-40e0-bf71-18aeba5662d2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\정렬">
+      <UniqueIdentifier>{58306e34-28aa-487c-947d-d33890549c94}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RankingData.h">
@@ -132,6 +135,21 @@
     </ClCompile>
     <ClCompile Include="로또 번호.cpp">
       <Filter>소스 파일\그래프</Filter>
+    </ClCompile>
+    <ClCompile Include="소스.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="알파벳.cpp">
+      <Filter>소스 파일\그래프</Filter>
+    </ClCompile>
+    <ClCompile Include="힙.cpp">
+      <Filter>소스 파일\정렬</Filter>
+    </ClCompile>
+    <ClCompile Include="퀵정렬.cpp">
+      <Filter>소스 파일\정렬</Filter>
+    </ClCompile>
+    <ClCompile Include="기수,계수정렬.cpp">
+      <Filter>소스 파일\정렬</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
