@@ -50,7 +50,7 @@ struct Triangle
 
 
 // 선분AB를 기준으로 두 점 P, Q가 같은쪽에 있는지를 검사한다.
-bool isSameSide(Point a,Point b, Point p , Point q)
+bool isSameSide(Point a, Point b, Point p, Point q)
 {
 	Point ba = b - a;
 	Point pa = p - a;
@@ -70,7 +70,7 @@ int main()
 	t.c = { 5,5,0 };
 
 
-	cout << isSameSide(t.a, t.b, t.c, { 2,1 }) << " " << isSameSide(t.b, t.c, t.a, { 2,1 }) <<" "<< isSameSide(t.c, t.a, t.b, {2,1});
+	cout << isSameSide(t.a, t.b, t.c, { 2,1 }) << " " << isSameSide(t.b, t.c, t.a, { 2,1 }) << " " << isSameSide(t.c, t.a, t.b, { 2,1 });
 
 
 	return 0;

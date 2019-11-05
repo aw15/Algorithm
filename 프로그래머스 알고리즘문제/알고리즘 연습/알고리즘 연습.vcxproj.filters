@@ -21,20 +21,26 @@
     <Filter Include="소스 파일\STL 과제1">
       <UniqueIdentifier>{4df209d0-988b-4221-b0c5-213c80c5ca56}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\Level1">
-      <UniqueIdentifier>{11609a16-8cfb-4b66-9f29-13a7ed024642}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\Level2">
-      <UniqueIdentifier>{3bf2524a-6d6e-4bf7-8ded-0eb72517784a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\Naver2019">
-      <UniqueIdentifier>{d23d2471-f26c-4935-ab85-cdd017bc9c1c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\그래프">
       <UniqueIdentifier>{4df65c6a-aab2-40e0-bf71-18aeba5662d2}</UniqueIdentifier>
     </Filter>
     <Filter Include="소스 파일\정렬">
       <UniqueIdentifier>{58306e34-28aa-487c-947d-d33890549c94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\수학">
+      <UniqueIdentifier>{8a74e2fe-7c8d-466c-824c-9419b50340e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\기타">
+      <UniqueIdentifier>{3325255b-3af5-40d0-936c-7d89197b93ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\기타\Level1">
+      <UniqueIdentifier>{11609a16-8cfb-4b66-9f29-13a7ed024642}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\기타\Level2">
+      <UniqueIdentifier>{3bf2524a-6d6e-4bf7-8ded-0eb72517784a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\기타\Naver2019">
+      <UniqueIdentifier>{d23d2471-f26c-4935-ab85-cdd017bc9c1c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -71,58 +77,58 @@
       <Filter>소스 파일\STL 과제1</Filter>
     </ClCompile>
     <ClCompile Include="k번째수.cpp">
-      <Filter>소스 파일\Level1</Filter>
+      <Filter>소스 파일\기타\Level1</Filter>
     </ClCompile>
     <ClCompile Include="다리위를 지나는 트럭.cpp">
-      <Filter>소스 파일\Level1</Filter>
+      <Filter>소스 파일\기타\Level1</Filter>
     </ClCompile>
     <ClCompile Include="완주하지 못한 선수.cpp">
-      <Filter>소스 파일\Level1</Filter>
+      <Filter>소스 파일\기타\Level1</Filter>
     </ClCompile>
     <ClCompile Include="체육복.cpp">
-      <Filter>소스 파일\Level1</Filter>
+      <Filter>소스 파일\기타\Level1</Filter>
     </ClCompile>
     <ClCompile Include="모의고사.cpp">
-      <Filter>소스 파일\Level1</Filter>
+      <Filter>소스 파일\기타\Level1</Filter>
     </ClCompile>
     <ClCompile Include="2016년.cpp">
-      <Filter>소스 파일\Level1</Filter>
+      <Filter>소스 파일\기타\Level1</Filter>
     </ClCompile>
     <ClCompile Include="가운데글자가져오기.cpp">
-      <Filter>소스 파일\Level1</Filter>
+      <Filter>소스 파일\기타\Level1</Filter>
     </ClCompile>
     <ClCompile Include="김서방 찾기.cpp">
-      <Filter>소스 파일\Level1</Filter>
+      <Filter>소스 파일\기타\Level1</Filter>
     </ClCompile>
     <ClCompile Include="시저암호.cpp">
-      <Filter>소스 파일\Level1</Filter>
+      <Filter>소스 파일\기타\Level1</Filter>
     </ClCompile>
     <ClCompile Include="이상한문자만들기.cpp">
-      <Filter>소스 파일\Level1</Filter>
+      <Filter>소스 파일\기타\Level1</Filter>
     </ClCompile>
     <ClCompile Include="스킬트리.cpp">
-      <Filter>소스 파일\Level2</Filter>
+      <Filter>소스 파일\기타\Level2</Filter>
     </ClCompile>
     <ClCompile Include="주식가격.cpp">
-      <Filter>소스 파일\Level2</Filter>
+      <Filter>소스 파일\기타\Level2</Filter>
     </ClCompile>
     <ClCompile Include="124나라 숫자.cpp">
-      <Filter>소스 파일\Level2</Filter>
+      <Filter>소스 파일\기타\Level2</Filter>
     </ClCompile>
     <ClCompile Include="기능개발.cpp">
-      <Filter>소스 파일\Level2</Filter>
+      <Filter>소스 파일\기타\Level2</Filter>
     </ClCompile>
     <ClCompile Include="더맵게.cpp">
-      <Filter>소스 파일\Level2</Filter>
+      <Filter>소스 파일\기타\Level2</Filter>
     </ClCompile>
     <ClCompile Include="죠르디.cpp">
       <Filter>소스 파일\큐</Filter>
     </ClCompile>
     <ClCompile Include="2번문제.cpp">
-      <Filter>소스 파일\Naver2019</Filter>
+      <Filter>소스 파일\기타\Naver2019</Filter>
     </ClCompile>
     <ClCompile Include="Tree.cpp">
-      <Filter>소스 파일\Naver2019</Filter>
+      <Filter>소스 파일\기타\Naver2019</Filter>
     </ClCompile>
     <ClCompile Include="스택수열.cpp">
       <Filter>소스 파일\스택</Filter>
@@ -150,6 +156,12 @@
     </ClCompile>
     <ClCompile Include="기수,계수정렬.cpp">
       <Filter>소스 파일\정렬</Filter>
+    </ClCompile>
+    <ClCompile Include="다익스트라.cpp">
+      <Filter>소스 파일\그래프</Filter>
+    </ClCompile>
+    <ClCompile Include="삼각형 안에 점.cpp">
+      <Filter>소스 파일\수학</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
